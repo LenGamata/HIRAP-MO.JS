@@ -1,20 +1,23 @@
 // favoriteNumber.js
 
-// Declare a variable for the favorite number
-let favoriteNumber = 7; // Replace with the user's favorite number
-let guess; // Variable to store the user's guess
+const prompt = require('prompt-sync')(); // Import prompt-sync
 
-// Use a while loop to prompt the user until they guess correctly
-while (true) { // Loop indefinitely until the correct guess is made
-    guess = parseInt(prompt("Guess my favorite number:")); // Prompt user for a guess
+// Declare a variable that will hold the favorite number
+const favoriteNumber = 7; // Set your favorite number here
 
-    // Check if the guess is correct
+let guess; // Initialize a variable to store the user's guess
+
+// Use a while loop to keep asking for the user's guess until they guess correctly
+while (true) {
+    guess = prompt('Guess your favorite number: '); // Prompt user for a guess
+    guess = Number(guess); // Convert the input to a number
+
     if (guess > favoriteNumber) {
-        console.log("Your guess is too high. Try again.");
+        console.log('Your guess is too high!');
     } else if (guess < favoriteNumber) {
-        console.log("Your guess is too low. Try again.");
+        console.log('Your guess is too low!');
     } else {
-        console.log("Correct! You guessed my favorite number.");
+        console.log('Correct! Your favorite number is ' + favoriteNumber);
         break; // Exit the loop if the guess is correct
     }
 }
